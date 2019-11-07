@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="blanco">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Preguntas y Respuestas</ion-title>
+    <ion-buttons slot="secondary">
+        <ion-button icon-only [routerLink]="'/home'">
+          <ion-icon name="home"></ion-icon>
+        </ion-button>
+        <ion-button icon-only [routerLink]="'/qa'">
+          <ion-icon name="chatbubbles"></ion-icon>
+          <ion-badge item-end>4</ion-badge>
+        </ion-button>
+        <ion-button icon-only [routerLink]="'/todo'">
+          <ion-icon name="briefcase"></ion-icon>
+        </ion-button>
+      <ion-avatar (click)="openPopoverDataCoach()">
+        <img src="http://lorempixel.com/200/200" alt=""> 
+      </ion-avatar>  
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="4" id="positionFixed">
+      <ion-row>
+        <ion-col size="12" *ngFor="let q of qaCategories">
+          <ion-card class="cardQa" (click)="qaDetail(q)" color="primary">
+            <ion-card-header>
+              {{q[0].categoria}}
+            </ion-card-header>
+          </ion-card> 
+        </ion-col> 
+      </ion-row>
+    </ion-col>
+    <ion-col size="8" id="positionRight">
+      <ion-searchbar>
+
+      </ion-searchbar>
+
+      <mat-accordion *ngIf="qaDates" >
+        <mat-expansion-panel *ngFor="let qa of qaDates">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{qa.pregunta}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>{{qa.respuesta}}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

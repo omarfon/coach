@@ -1,1 +1,109 @@
+ion-content{
+    --background:#F7FAFC!important;
+    ion-card{
+        background: #fff!important;
+    }
+}
+                    .areaMensajes{
+                        --background:red!important;
+                        min-height:85vh;
+                        height:auto;
+                        position: absolute!important;
+                        right:0!important;
+                        z-index: 200;
+                    }
+.message{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+}
 
+.other-message{
+    background: #5BCEAE;
+    color:#fff;
+}
+
+.my-message{
+    background: #3796F6;
+    color:#fff;
+}
+
+.time{
+    color:#dfdfdf;
+    float:right;
+    font-size:small;
+}
+.msg-btn{
+    --padding-start:.5em;
+    --padding-end: .5em;
+}
+.message-input{
+    width: 100%;
+    /* border: 1px solid var(--ion-color-medium); */
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left:10px;
+    padding-right:10px;
+}
+#positionFixed{
+    background:#F7FAFC!important;
+    position: fixed!important;
+    z-index:200;
+}
+.mamas{
+    color:var(--ion-color-primary);
+    text-align: center;
+}
+/* .tituloDatos{
+    color:var(--ion-color-primary);
+    text-align: center;
+} */
+/* .tituloNotas{
+    color:var(--ion-color-primary);
+    text-align: center;
+} */
+mat-expansion-panel-header{
+    border-radius:5px;
+    border:1px solid #F7FAFC;
+    background:#FFFFFF;
+}
+mat-panel-title{
+    font-size:.9em!important;
+    color:#90A8BE!important;
+    margin-bottom:10px!important;
+}
+ion-fab{
+    position: fixed;
+    bottom:0;
+    right:0;
+    margin-bottom:100px;
+    margin-right: 30px;
+    z-index:500;
+}
+ion-avatar{
+    height: 40px;
+    width:40px;
+    margin-right:20px;
+}
+ion-list{
+    background: transparent!important;
+}
+ion-footer{
+    background:#F7FAFC!important;
+    border:none;
+}
+.title{
+    color:#3796F6;
+    font-weight: 400;
+}
+ion-title, ion-menu-button, ion-icon{
+    color:#90A8BE;
+}
+ion-fab{
+    --background: transparent!important;
+}
+input .searchbar-input{
+    border-radius:20px!important;
+}
