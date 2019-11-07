@@ -1,0 +1,28 @@
+
+    <div>
+        <ion-row>
+          <ion-col size="4" class="Nombre title">Nombre:</ion-col>
+          <ion-col class="textoSimple" size="8">{{datosBasicos.nombre}} {{datosBasicos.apellido1}} {{datosBasicos.apellido2}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="title">Dni:</ion-col>
+          <ion-col class="textoSimple" size="8">{{datosBasicos.numeroDocumento}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="title">Telefono:</ion-col>
+          <ion-col class="textoSimple" size="8">{{datosBasicos.telefono1}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="title">Email:</ion-col>
+          <ion-col class="textoSimple" size="8" *ngIf="datosBasicos">PENDIENTE</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="title">Fecha de Nacimiento:</ion-col>
+          <ion-col class="textoSimple" size="8">{{datosBasicos.fecha_nac | date:"short"}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="title">Semanas:</ion-col>
+          <ion-col class="textoSimple" size="8" *ngIf="datosBasicos">PENDIENTE</ion-col>
+        </ion-row>
+      </div>

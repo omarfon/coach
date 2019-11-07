@@ -32,7 +32,7 @@
     <ion-row>
 
       <!-- esta sección es para mostrar a los usuarios y los datos de los usuarios -->
-      <ion-col size="5" id="positionFixed">
+      <ion-col size="3" id="positionFixed">
         <ion-row>
           <ion-col size="12">
             <ion-list>
@@ -40,10 +40,10 @@
               <ion-searchbar class="search" debounce="500" placeholder="buscar aviver" showcancelbutton=""
                 (ionInput)="filterList($event)">
               </ion-searchbar>
-              <ion-slides [options]="slideOpts">
-                <ion-slide *ngFor="let chat of goalList">
-                  <ion-row>
-                    <ion-card (click)="obtenerConversacion(chat)">
+             <!--  <ion-slides [options]="slideOpts">
+                <ion-slide >
+                  <ion-row> -->
+                    <!-- <ion-card (click)="obtenerConversacion(chat)">
                       <img *ngIf="chat.data.imagen" style="height: 50px; width:auto;" src="{{chat.data.imagen}}">
                       <img *ngIf="!chat.data.imagen" style="height: 50px; width:auto;" src="http://lorempixel.com/200/200">
                       <ion-card-header>
@@ -51,15 +51,25 @@
                           {{chat.data.name}}
                         </ion-card-subtitle>
                       </ion-card-header>
-                    </ion-card>
-                  </ion-row>
+                    </ion-card> -->
+                    <ion-list>
+                      <ion-item *ngFor="let chat of goalList" (click)="obtenerConversacion(chat)">
+                        
+                          <ion-avatar slot="start">
+                            <img *ngIf="!chat.data.imagen" src="http://lorempixel.com/200/200">
+                          </ion-avatar>
+                          <ion-label>{{chat.name}}</ion-label>
+                      
+                      </ion-item>  
+                    </ion-list>
+                 <!--  </ion-row>
                 </ion-slide>
-              </ion-slides>
+              </ion-slides> -->
             </ion-list>
           </ion-col>
           <ion-col size="12" *ngIf="chat">
             <mat-accordion>
-              <mat-expansion-panel>
+            <!--   <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <h6 class="tituloDatos" *ngIf="datosBasicos">Datos de {{datosBasicos.name}}
@@ -93,7 +103,7 @@
                     <ion-col size="8" *ngIf="datosBasicos">PENDIENTE</ion-col>
                   </ion-row>
                 </div>
-              </mat-expansion-panel>
+              </mat-expansion-panel> -->
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
@@ -103,7 +113,7 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <ion-row>
-                  <ion-col size="4" *ngFor="let note of chat.notes">
+                  <ion-col size="4" *ngFor="let note of notes">
                     <ion-card>
                       {{note.content}}
                     </ion-card>
@@ -119,7 +129,7 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <ion-slides [options]="opts">
-                  <ion-slide *ngFor="let nota of notasPaciente">
+                  <ion-slide *ngFor="let nota of notes">
                     <ion-chip outline="true" color="blue" (click)="openModalDataCita($event, nota)">
                       <ion-label color="blue">{{nota.serv_bas_desc}} {{nota.fecha_encuentro | date:"dd-MM-yyyy"}}
                       </ion-label>
@@ -144,7 +154,7 @@
         <!--     boton para actualizar las notas -->
       </ion-col>
       <!-- aqui se muestran los mensajes de el usuario seleccionado -->
-      <ion-col size="7" class="areaMensajes">
+      <ion-col size="7">
         <div *ngIf="conversacion ">
           <ion-row *ngFor="let mensaje of conversacion.messages">
             <ion-col size="8" *ngIf="currentUser !== mensaje.user" class="message other-message">
@@ -154,7 +164,7 @@
                 {{mensaje.date.toDate() | date:'short'}}
               </div>
             </ion-col>
-            <ion-col offset="4" size="8" *ngIf="currentUser === mensaje.user" class="message my-message">
+            <ion-col offset="1" size="8" *ngIf="currentUser === mensaje.user" class="message my-message">
                 
               <b>{{mensaje.user}}</b> <br>
               <span>{{mensaje.content}}</span>
@@ -165,7 +175,38 @@
           </ion-row>
         </div>
       </ion-col>
-
+      <ion-col size="2" class="barraIconos">
+        <ion-row>
+          <ion-col size="12">
+            <ion-chip color="tertiary" (click)="openPopoverDatos($event)">
+              <ion-icon name="journal" color="tertiary"></ion-icon>
+              <ion-label color="tertiary">ver datos </ion-label>
+              <ion-icon name="send"></ion-icon>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="12">
+            <ion-chip>
+              <ion-icon name="more"></ion-icon>
+              <ion-label>ver notas</ion-label>
+              <ion-icon name="add-circle"></ion-icon>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="12">
+              <ion-chip>
+                <ion-icon name="image"></ion-icon>
+                <ion-label>agregar foto</ion-label>
+                <ion-icon name="add-circle"></ion-icon>
+              </ion-chip>
+            </ion-col>
+            <ion-col size="12">
+                <ion-chip>
+                  <ion-icon name="stopwatch"></ion-icon>
+                  <ion-label>crear alerta</ion-label>
+                  <ion-icon name="add-circle"></ion-icon>
+                </ion-chip>
+              </ion-col>
+        </ion-row> 
+    </ion-col>
     </ion-row>
     <ion-fab>
       <ion-fab-button color="secondary" (click)="showModal($event, chat)" vertical="bottom" horizontal="end"

@@ -10,12 +10,15 @@ import { ComponentsModule } from '../components/components.module';
 import { DatoscitasComponent } from '../components/datoscitas/datoscitas.component';
 import { DatosclaudiaComponent } from '../components/datosclaudia/datosclaudia.component';
 import { NoteComponent } from '../components/note/note.component';
+import { DatosPacienteComponent } from '../components/datos-paciente/datos-paciente.component';
+
 
 
 @NgModule({
   entryComponents:[
  DatoscitasComponent,
     DatosclaudiaComponent,
+    DatosPacienteComponent,
     NoteComponent
   ],
   imports: [

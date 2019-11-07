@@ -4,18 +4,21 @@ import { NoteComponent } from './note/note.component';
 import { QadateComponent } from './qadate/qadate.component';
 import { DatoscitasComponent } from './datoscitas/datoscitas.component';
 import { DatosclaudiaComponent } from './datosclaudia/datosclaudia.component';
+import { DatosPacienteComponent } from './datos-paciente/datos-paciente.component';
 
 
 @NgModule({
     declarations:[NoteComponent, 
                   QadateComponent,
                   DatoscitasComponent,
-                  DatosclaudiaComponent],
+                  DatosclaudiaComponent,
+                  DatosPacienteComponent,],
     imports:[CommonModule],
     exports:[NoteComponent, 
              QadateComponent,
              DatoscitasComponent,
-             DatosclaudiaComponent],
+             DatosclaudiaComponent,
+             DatosPacienteComponent],
     schemas:
             [CUSTOM_ELEMENTS_SCHEMA]
 
