@@ -4,14 +4,14 @@ ion-content{
         background: #fff!important;
     }
 }
-                    .areaMensajes{
-                        --background:red!important;
-                        min-height:85vh;
-                        height:auto;
-                        position: absolute!important;
-                        right:0!important;
-                        z-index: 200;
-                    }
+.areaMensajes{
+    --background:red!important;
+    min-height:85vh;
+    height:auto;
+    position: absolute!important;
+    right:0!important;
+    z-index: 200;
+}
 .message{
     padding: 10px;
     border-radius: 10px;
@@ -22,17 +22,20 @@ ion-content{
 .other-message{
     background: #5BCEAE;
     color:#fff;
+    height: auto;
 }
 
 .my-message{
     background: #3796F6;
     color:#fff;
+    height: auto;
 }
 
 .time{
-    color:#dfdfdf;
+    color:#fff;
     float:right;
-    font-size:small;
+    font-size:.6em;
+    margin-top:10px;
 }
 .msg-btn{
     --padding-start:.5em;
@@ -49,21 +52,13 @@ ion-content{
 }
 #positionFixed{
     background:#F7FAFC!important;
-/*     position: fixed!important; */
+    position: absolute!important;
     z-index:200;
 }
 .mamas{
     color:var(--ion-color-primary);
     text-align: center;
 }
-/* .tituloDatos{
-    color:var(--ion-color-primary);
-    text-align: center;
-} */
-/* .tituloNotas{
-    color:var(--ion-color-primary);
-    text-align: center;
-} */
 mat-expansion-panel-header{
     border-radius:5px;
     border:1px solid #F7FAFC;
@@ -112,4 +107,8 @@ input .searchbar-input{
     position: sticky;
     height:100vh;
     color:·ffffff;
+}
+.altofijo{
+    min-height:75vh;
+    height: 75vh;
 }

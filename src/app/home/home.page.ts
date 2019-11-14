@@ -12,6 +12,8 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 import { mergeMap } from 'rxjs/operators';
 import { NotificationsService } from '../services/notifications.service';
 import { DatosPacienteComponent } from '../components/datos-paciente/datos-paciente.component';
+import { SeeNotesComponent } from '../components/see-notes/see-notes.component';
+import { BagdesComponent } from '../components/bagdes/bagdes.component';
 
 
 
@@ -35,6 +37,9 @@ export class HomePage implements OnInit {
   public patientid;
   public notasPaciente;
   public fechaEmbarazo;
+
+  public badge = 0;
+  public _badge: any = [];
 
   @ViewChild(IonContent, {static:true}) content: IonContent;
   public slideOpts = {
@@ -96,8 +101,22 @@ export class HomePage implements OnInit {
     this.patientid = chat.data.patientid;
     this.getDatosBasicos();
 
+    this.badge = 0;
+    this._badge = [];
+
    /*  this.getNotasPaciente(); */
 
+  }
+
+  async openBadges(event){
+    const popoverBadges = await this.popoverCtrl.create({
+      component: BagdesComponent,
+      componentProps: {
+        badges : this._badge
+      },
+      event: event
+    })
+    await popoverBadges.present();
   }
  
   getDatosBasicos(){
@@ -113,7 +132,7 @@ export class HomePage implements OnInit {
       })
   }
 
-  getNotasPaciente(patientid, fechaini, fechafin){
+  getNotasPaciente(){
       const patienId = this.patientid;
       const fechaIni = moment(this.patientid).format("YYYY/MM/DD");
       const fechaFin = moment().format("YYYY/MM/DD");;
@@ -246,7 +265,13 @@ export class HomePage implements OnInit {
     .subscribe((message) => { 
       console.log('m', message); 
       this.mensajeRecibido(message);
+      this.badge = this._badge.push([message]);
+      console.log('lo que hay en el badge',this.badge);
+      console.log('this._badge', this._badge);
     });
+
+    
+
   }
 
   //crear tostada para informar de las habilitaciones de notificaciones para la coach
@@ -282,5 +307,37 @@ export class HomePage implements OnInit {
         event: event
     })
     await popover.present()
+  }
+
+  async seeNotes(event){
+    console.log('notes', this.notes);
+    const popoverNotes = await this.popoverCtrl.create({
+      component:SeeNotesComponent,
+      componentProps:{
+        notes:this.notes
+      },
+      event: event
+    })
+    await popoverNotes.present();
+  }
+
+  async seeDays(event){
+    console.log('entrando a seeDays');
+    const patienId = this.patientid;
+    const fechaIni = moment(this.patientid).format("YYYY/MM/DD");
+    const fechaFin = moment().format("YYYY/MM/DD");;
+    this.notasSrv.getNotas(patienId, fechaIni, fechaFin).subscribe((data:any)=>{
+      this.notasPaciente = data.encuentros;
+      console.log('thisnotaspaienter', this.notasPaciente)
+    })
+    console.log('notes', this.notes);
+    const popoverDays = await this.popoverCtrl.create({
+      component:SeeNotesComponent,
+      componentProps:{
+        days:this.notasPaciente
+      },
+      event: event
+    })
+    await popoverDays.present();
   }
 }
