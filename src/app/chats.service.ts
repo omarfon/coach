@@ -19,6 +19,7 @@ export interface chat {
   providedIn: 'root'
 })
 export class ChatsService {
+  chatroom: unknown;
 
   constructor(public db: AngularFirestore,
               public ad: AngularFireAuth) { 
@@ -35,9 +36,19 @@ export class ChatsService {
       console.log('rooms:', users);
     }));
   }
+
+  getMessages(){
+
+  }
   
   getChatRoom( chat_id: string){
-      return this.db.collection('chatsRooms').doc(chat_id).valueChanges()
+    return this.db.collection('chatsRooms').doc(chat_id).valueChanges();
+      /* return this.db.collection('chatsRooms').doc(chat_id).valueChanges().subscribe((data:any) => {
+        this.chatroom = data.messages;
+        if(this.chatroom){
+          console.log('this.chatroom',this.chatroom);
+        }
+      }) */
   }
 
   sendMessageToFirebase(message: message, chat_id: string){

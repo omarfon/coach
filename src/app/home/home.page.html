@@ -155,15 +155,15 @@
       <!-- aqui se muestran los mensajes de el usuario seleccionado -->
       <ion-col size="7" class="altofijo">
         <div *ngIf="conversacion ">
-          <ion-row *ngFor="let mensaje of conversacion.messages">
-            <ion-col size="8" *ngIf="currentUser !== mensaje.user" class="message other-message">
+          <ion-row *ngFor="let mensaje of conversacion.messages; let i = index">
+            <ion-col size="8" *ngIf="currentUser !== mensaje.user && i < 11" class="message other-message">
               <b>{{mensaje.user}}</b> <br>
               <span>{{mensaje.content}}</span>
               <div class="time" text-right>
                 {{mensaje.date.toDate() | date:'short'}}
               </div>
             </ion-col>
-            <ion-col offset="4" size="8" *ngIf="currentUser === mensaje.user" class="message my-message">
+            <ion-col offset="4" size="8" *ngIf="currentUser === mensaje.user && i < 11" class="message my-message">
               <b>{{mensaje.user}}</b> <br>
               <span>{{mensaje.content}}</span>
               <div class="time" text-right>
@@ -220,6 +220,12 @@
       </ion-fab-button>
     </ion-fab>
   </ion-grid>
+  <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
 </ion-content>
 <ion-footer padding>
   <ion-toolbar color="light">

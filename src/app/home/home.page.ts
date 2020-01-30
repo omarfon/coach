@@ -340,4 +340,5 @@ export class HomePage implements OnInit {
     })
     await popoverDays.present();
   }
+
 }
