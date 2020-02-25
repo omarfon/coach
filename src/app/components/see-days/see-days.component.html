@@ -1,0 +1,8 @@
+<ion-slides [options]="opts">
+  <ion-slide *ngFor="let nota of days">
+    <ion-chip outline="true" color="blue" (>
+      <ion-label color="blue">{{nota.serv_bas_desc}} {{nota.fecha_encuentro | date:"dd-MM-yyyy"}}
+      </ion-label>
+    </ion-chip>
+  </ion-slide>
+</ion-slides>
