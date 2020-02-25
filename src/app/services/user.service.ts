@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {  API_ENDPOINT } from 'src/environments/environment';
 
 
 
@@ -11,8 +12,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class UserService {
-  private SERVER = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/";
-  private SERVER2 = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/auth/login"
+  private SERVER = API_ENDPOINT;
+  private SERVER2 = `${this.SERVER}auth/login`
   apiUrl = `${this.SERVER}users/public-authorization`;
 
 

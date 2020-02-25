@@ -60,6 +60,7 @@ export class HomePage implements OnInit {
     this.listen();
     
     this.chatPvr.getChatRooms().subscribe(chats =>{
+      console.log('obteniendo chatsrooms', chats)
      this.goalList  = chats;
      this.loadedGoalList = chats;
      console.log(this.chatRooms);
@@ -244,7 +245,8 @@ export class HomePage implements OnInit {
           console.log('Permission granted! Save to the server!', token);
           const uid = localStorage.getItem('uid');
           if(token && uid){
-            this.chatPvr.registerToken(token, uid);
+            /* this.chatPvr.registerToken(token, uid); */
+            console.log('token', token, uid);
           }
         },
         (error) => {

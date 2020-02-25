@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebase : {
     apiKey: "AIzaSyBMopx6KZ79wFANi2Yb6ysxvAIdRso96VY",
     authDomain: "aviva-mamapp-dev.firebaseapp.com",
@@ -14,7 +14,14 @@ export const environment = {
     appId: "1:519988913097:web:dca29f129d59cc0b",
     vapidKey:"BBwWAlKhU8eHfS-ntn7Mc4XD0HEMmQv8wmA-niDLj4eP28bi4CFjmp-gGwH3bQXAqi4OFU3lg95czzAx_akXDyo",
   } 
+
 };
+
+/* export const API_ENDPOINT = "https://api.aviva.pe/middleware2/api/v2/"; */
+/* export const API_NOTAS = "https://api.aviva.pe/middleware2/api/v2/mama";  */
+
+ export const API_ENDPOINT = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/"; 
+/* export const API_NOTAS = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/mama/";  */
 
 /*
  * For easier debugging in development mode, you can import the following file
