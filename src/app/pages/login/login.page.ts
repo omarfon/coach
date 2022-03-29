@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
       localStorage.setItem('userEmail', data.userEmail);
       const token = data.firebaseToken;
       if(token){
-        this.chatSrv.loginWithToken(token).then((result:any) =>{
+        this.chatSrv.loginEmailUser(email, password).then((result:any) =>{
           console.log(result);
           localStorage.setItem('uid', result.user.uid );
           const uid = localStorage.getItem('uid');

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatsService, chat } from 'src/app/chats.service';
 import { popoverController } from '@ionic/core';
 import { PopoverController, NavController } from '@ionic/angular';
+import { ChatsService } from 'src/app/chats.service';
 
 
 

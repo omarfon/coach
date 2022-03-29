@@ -67,8 +67,9 @@ export class HomePage implements OnInit {
     this.listen();
     
     this.chatPvr.getChatRooms().subscribe(chats =>{
-      console.log('obteniendo chatsrooms', chats)
-     this.goalList  = chats;
+      this.goalList  = chats;
+      this.goalList = this.goalList.filter(x => x.messages);
+      console.log('obteniendo chatsrooms', chats, this.goalList)
      this.loadedGoalList = chats;
      console.log(this.chatRooms);
      if(localStorage.getItem('name')){
@@ -87,6 +88,7 @@ export class HomePage implements OnInit {
   }
 
   obtenerConversacion(chat){
+    this.patientid = null;
     this.chat = chat;
     console.log(chat);
     this.chatService.getChatRoom(this.chat.id).subscribe( room =>{
@@ -99,7 +101,7 @@ export class HomePage implements OnInit {
       this.content.scrollToBottom(300);
     },300)
 
-    this.patientid = chat.data.patientid;
+    this.patientid = Number(chat.data.patientId);
     this.getDatosBasicos();
 
     this.badge = 0;
@@ -181,7 +183,7 @@ export class HomePage implements OnInit {
 
 //esta función sirve para filtrar la lista de usuarios registrados en ese momento en la aplicaciòn
   filterList(evt:any){
-    /* console.log(evt); */
+    console.log(evt);
     this.initializeItems();
     const searchTerm = evt.srcElement.value;
     if(!searchTerm){
@@ -299,6 +301,7 @@ export class HomePage implements OnInit {
     })
     toast.present();
   }
+
   async openPopoverDatos(event){
     console.log('los datos basicos:', this.datosBasicos);
     const popover = await this.popoverCtrl.create({

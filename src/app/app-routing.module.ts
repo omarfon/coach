@@ -7,7 +7,8 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' , canActivate:[LoginGuard]},
   /* { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)}, */
-  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate:[AuthGuard]},
+  { path: 'home', loadChildren: './home/home.module#HomePageModule'},
+  /* { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate:[AuthGuard]}, */
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' , canActivate:[LoginGuard]},
   { path: 'qa', loadChildren: './pages/qa/qa.module#QaPageModule' },
   { path: 'todo', loadChildren: './pages/todo/todo.module#TodoPageModule' },

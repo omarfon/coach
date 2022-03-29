@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { API_ENDPOINT } from 'src/environments/environment';
 
 
 @Injectable({
@@ -8,8 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class NotificationsService {
 
-  public apiRegister ="https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/auth/fcm-register"
-  public apiNoti = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/auth/fcm-notify?patient_id=";
+  public SERVER = API_ENDPOINT;
+  public apiRegister = `${this.SERVER}auth/fcm-register`;
+  public apiNoti = `${this.SERVER}auth/fcm-notify?patient_id=`;
 
   constructor(public http: HttpClient) { }
 

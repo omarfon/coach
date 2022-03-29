@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API_ENDPOINT } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +11,9 @@ export class NotasService {
 
   constructor(public http: HttpClient) { }
 
-  public apiUrl = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/";
+  public SERVER = API_ENDPOINT;
+
+  public apiUrl = `${this.SERVER}`;
 
   getNotas(patientid, fechaIni, fechaFin){
 

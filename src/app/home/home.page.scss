@@ -6,15 +6,14 @@ ion-content{
 }
 .areaMensajes{
     --background:red!important;
-    min-height:85vh;
+    min-height:auto;
     height:auto;
-    position: absolute!important;
+/*     position: sticky!important; */
     right:0!important;
     z-index: 200;
 }
 .message{
     padding: 10px;
-    border-radius: 10px;
     margin-bottom: 4px;
     white-space: pre-wrap;
 }
@@ -23,12 +22,18 @@ ion-content{
     background: #5BCEAE;
     color:#fff;
     height: auto;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius:20px;
+    border-bottom-left-radius: 20px;
 }
 
 .my-message{
     background: #3796F6;
     color:#fff;
     height: auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius:20px;
+    border-bottom-left-radius: 20px;
 }
 
 .time{
@@ -78,8 +83,8 @@ ion-fab{
     z-index:500;
 }
 ion-avatar{
-    height: 40px;
-    width:40px;
+    height: 32px;
+    width:32px;
     margin-right:20px;
 }
 ion-list{
@@ -104,11 +109,45 @@ input .searchbar-input{
 }
 .barraIconos{
     background:rgba(144, 168, 190, 0.253)!important;
-    position: sticky;
     height:100vh;
-    color:·ffffff;
+    overflow: hidden;
+    color:#ffffff;
+    position:fixed;
 }
 .altofijo{
-    min-height:75vh;
-    height: 75vh;
+    height: 800px!important;
+    overflow: scroll;
+}
+
+//contenedor de los usuarios registrados
+.containerNameUsers{
+    position: static;
+    width:350px!important;
+    box-sizing: border-box;
+    overflow: scroll;
+    height: 800px;
+}
+.ion-item{
+    margin-bottom:5px;
+    cursor: pointer;
+}
+ion-label{
+    font-size:.9em!important;
+    color:#90A8BE!important;
+}
+ion-searchbar{
+    position: sticky;
+}
+.nombreAviver{
+    cursor:pointer;
+}
+.nombreAviver:hover{
+    --background:#3796F6!important;
+    color:#fff!important;
+    font-weight: 500;
+}
+.nombreAviver:focus{
+    --background:#3796F6!important;
+    color:#fff!important;
+    font-weight: 500;
 }

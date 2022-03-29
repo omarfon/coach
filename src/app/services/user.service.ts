@@ -3,9 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {  API_ENDPOINT } from 'src/environments/environment';
-
-
+import { API_ENDPOINT } from 'src/environments/environment';
 
 
 @Injectable({

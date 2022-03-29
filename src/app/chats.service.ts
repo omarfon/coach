@@ -79,6 +79,10 @@ export class ChatsService {
     });
   }
 
+ /*  loginWithEmailAndPassword(){
+    this.ad.auth.signInWithEmailAndPassword(email, password)
+  }
+ */
  sendDataBasic(){
   const id = localStorage.getItem('id');
   const uid = localStorage.getItem('uid');
@@ -93,8 +97,9 @@ export class ChatsService {
    {
      email: email,
     }
-  },{merge:true})
-  .catch(err =>{
+  },
+  {merge:true}
+  ).catch(err =>{
     console.log(err, 'error de no escritura');
   })
  }

@@ -16,13 +16,14 @@ import {AngularFireMessagingModule} from '@angular/fire/messaging';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 //constantes
-import { environment } from 'src/environments/environment';
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],

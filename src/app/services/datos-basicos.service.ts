@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API_ENDPOINT } from 'src/environments/environment';
 
 
 
@@ -10,7 +11,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DatosBasicosService {
 
-  public apiUrl = "https://dappapache02.eastus.cloudapp.azure.com/middleware2-copy/api/v2/";
+  private SERVER = API_ENDPOINT;
+  public apiUrl = `${this.SERVER}`;
 
   constructor(public http:HttpClient) { }
 
